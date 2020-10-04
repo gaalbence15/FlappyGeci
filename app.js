@@ -17,7 +17,7 @@ function Down(){
     bird.style.bottom = position + 'px';
 };
 function Up(){
-    position += 10;
+    position += 7;
     position = position;
     bird.style.bottom = position + 'px';
 };
@@ -58,10 +58,10 @@ function generatePipes(){
         grid.appendChild(pipeTop);
         
         do{
-            pipeHeight = Math.random() * 580;
-        }while (pipeHeight > 0.8 * 580 || pipeHeight < 0.2 * 580)
+            pipeHeight = Math.random() * 800;
+        }while (pipeHeight > 0.8 * 800 || pipeHeight < 0.2 * 800)
         pipeBot.style.height = pipeHeight + 'px';
-        pipeTop.style.height = 540 - pipeHeight + 'px';
+        pipeTop.style.height = 800 - pipeHeight - 180 + 'px';
         pipeTop.style.top = 0;
         pipeTop.style.transform = 'rotate(180deg)';
         pipeTop.style.transform = 'scaleY(-1)';
@@ -86,7 +86,7 @@ function generatePipes(){
         let isDead = setInterval(() =>{
             console.log('asd');
             console.log();
-            if(pipePos == 50 && (position < pipeHeight || position > 40 + pipeHeight) || parseFloat(bird.style.bottom) == 0){
+            if(pipePos == 50 && (position < pipeHeight || position > 800 - pipeHeight) || parseFloat(bird.style.bottom) == 0){
                 isGameOver = true;
                 console.log(pipeHeight);
                 console.log(540 - pipeHeight);
