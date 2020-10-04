@@ -86,7 +86,7 @@ function generatePipes(){
         let isDead = setInterval(() =>{
             console.log('asd');
             console.log();
-            if(pipePos == 50 && (position < pipeHeight || position > (800 - pipeHeight - 180)) || parseFloat(bird.style.bottom) == 0){
+            if(pipePos == 50 && (position < pipeHeight || position > 800 - (800 - pipeHeight - 180)) || parseFloat(bird.style.bottom) == 0){
                 isGameOver = true;
                 console.log(pipeHeight);
                 console.log(540 - pipeHeight);
