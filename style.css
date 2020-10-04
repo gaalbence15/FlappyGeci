@@ -1,0 +1,62 @@
+body{
+    margin: 0;
+    background-color: rgb(131, 226, 142);
+    
+}
+ #background{
+     position: absolute;
+     background-image: url('./img/background.png');
+     background-repeat: repeat-x;
+     background-size: contain;
+     width: 100%;
+     height: 85vh;
+ }
+ #footer{
+     position: absolute;
+     bottom: 0;
+     background-image: url('./img/footer.png');
+     background-repeat: repeat-x;
+     background-size: contain;
+     width: 100%;
+     height: 15vh;
+ }
+ .animation{
+     animation: moveLeft 3000s infinite linear;
+     -webkit-animation: moveLeft 3000s infinite linear;
+ }
+ .bird{
+     position: absolute;
+     background-image: url('./img/bird.png');
+     width: 60px;
+     height: 45px;
+     bottom: 400px;
+     left: 10%;
+ }
+.pipe{
+    position: absolute;
+    bottom: 0;
+    width: 60px;
+    /* height: 300px; */
+    background-image: url('./img/pipe.png');
+    background-size: 100% 100%;
+    
+    
+}
+
+ @keyframes moveLeft{
+     from{
+         background-position: 70000%;
+     }
+     to{
+         background-position: 0;
+     }
+ }
+ @-webkit-keyframes moveLeft{
+    from{
+        background-position: 70000%;
+    }
+    to{
+        background-position: 0;
+    }
+ }
+
