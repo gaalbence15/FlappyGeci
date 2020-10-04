@@ -1,21 +1,28 @@
 document.addEventListener('DOMContentLoaded', () => {
     const bird = document.querySelector('.bird');
     const grid = document.querySelector('#grid');
+    const points = document.querySelector('#score');
 
 let position = 400;
 let isGameOver = false;
 let isUp = false;
 let counter = 0;
+let score = 0;
+let gameovertest = false;
+
+
+function Down(){
+    position -= 5;
+    position = position;
+    bird.style.bottom = position + 'px';
+};
+function Up(){
+    position += 10;
+    position = position;
+    bird.style.bottom = position + 'px';
+};
 
 function Control(event){
-    if(isUp == false){
-        let downinterval = setInterval(() => {
-            Down();
-            if(isUp == true){
-                clearInterval(downinterval);
-            }
-        }, 20);
-    }
     if(event.keyCode === 32){
         isUp = true;
         let upinterval = setInterval(() => {
@@ -24,32 +31,19 @@ function Control(event){
             if(counter == 15){
                 isUp = false;
                 clearInterval(upinterval);
+                counter = 0;
+                if(isUp == false){
+                    let downinterval = setInterval(() => {
+                        Down();
+                        if(isUp == true){
+                            clearInterval(downinterval);
+                        }
+                    }, 20);
+                }
             }
         },20);
     }
 }
-
-// function Fly(){
-//     let count = 0;
-//     let up = setInterval(() => {
-//         if(count == 15){
-//             clearInterval(up);
-//             let down = setInterval(() => {
-//                 if(count == 0){
-//                     clearInterval(down);
-//                 }
-//                 position -= 3;
-//                 position = position * gravity;
-//                 bird.style.bottom = position + 'px';
-//                 count--;
-//             }, 20);
-//         }
-//         position += 10;
-//         position = position * gravity;
-//         bird.style.bottom = position + 'px';
-//         count++;
-//     }, 20);
-// };
 
 function generatePipes(){
     let time = 2000;
@@ -82,20 +76,30 @@ function generatePipes(){
             grid.removeChild(pipeTop);
             clearInterval(generate);
         }
+        if(pipePos == 50){
+            score++;
+            points.innerHTML = score;
+        }
     },30)
+    if(gameovertest == false){
+        gameovertest = true;
+        let isDead = setInterval(() =>{
+            console.log('asd');
+            console.log();
+            if(pipePos == 50 && (position < pipeHeight || position > 40 + pipeHeight) || parseFloat(bird.style.bottom) == 0){
+                isGameOver = true;
+                console.log(pipeHeight);
+                console.log(540 - pipeHeight);
+                console.log(position);
+            }
+            if(isGameOver){
+                points.innerHTML = 'ded';
+            }
+        },20);
+    }
     if(!isGameOver){setTimeout(generatePipes, time);}
 };
 
-function Down(){
-    position -= 5;
-    position = position;
-    bird.style.bottom = position + 'px';
-};
-function Up(){
-    position += 10;
-    position = position;
-    bird.style.bottom = position + 'px';
-};
 
 
 generatePipes();

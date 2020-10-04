@@ -1,7 +1,7 @@
 body{
     margin: 0;
     background-color: rgb(131, 226, 142);
-    
+
 }
  #background{
      position: absolute;
@@ -30,7 +30,7 @@ body{
      width: 60px;
      height: 45px;
      bottom: 400px;
-     left: 10%;
+     left: 50px;
  }
 .pipe{
     position: absolute;
