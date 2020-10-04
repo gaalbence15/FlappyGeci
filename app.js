@@ -3,7 +3,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const grid = document.querySelector('#grid');
 
 let position = 400;
-let gravity = 1;
 let isGameOver = false;
 let isUp = false;
 let counter = 0;
@@ -89,12 +88,12 @@ function generatePipes(){
 
 function Down(){
     position -= 5;
-    position = position * gravity;
+    position = position;
     bird.style.bottom = position + 'px';
 };
 function Up(){
     position += 10;
-    position = position * gravity;
+    position = position;
     bird.style.bottom = position + 'px';
 };
 
