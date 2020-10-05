@@ -84,23 +84,18 @@ function generatePipes(){
     if(gameovertest == false){
         gameovertest = true;
         let isDead = setInterval(() =>{
-            console.log('asd');
-            console.log();
             if(pipePos == 50 && (position < pipeHeight || position > 800 - (800 - pipeHeight - 180)) || parseFloat(bird.style.bottom) == 0){
                 isGameOver = true;
-                console.log(pipeHeight);
-                console.log(540 - pipeHeight);
-                console.log(position);
             }
             if(isGameOver){
-                points.innerHTML = 'ded';
+                points.innerHTML = 'Game Over';
+               grid.removeChild(bird);
+                
             }
         },20);
     }
     if(!isGameOver){setTimeout(generatePipes, time);}
 };
-
-
 
 generatePipes();
 document.addEventListener('keyup', Control);
